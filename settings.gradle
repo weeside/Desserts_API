@@ -1,0 +1,8 @@
+rootProject.name = 'desserts'
+
+include 'core-test'
+include 'domain'
+include 'infrastructures'
+include 'infrastructures:rdb'
+include 'core'
+
