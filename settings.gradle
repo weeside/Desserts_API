@@ -5,4 +5,5 @@ include 'domain'
 include 'infrastructures'
 include 'infrastructures:rdb'
 include 'core'
+include 'external-api'
 
