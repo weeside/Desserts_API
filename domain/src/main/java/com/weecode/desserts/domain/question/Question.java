@@ -1,8 +1,9 @@
 package com.weecode.desserts.domain.question;
 
-import com.weecode.desserts.domain.BaseEntity;
+import com.weecode.desserts.domain.common.BaseEntity;
 import lombok.AccessLevel;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -12,6 +13,7 @@ import javax.persistence.*;
         name = "QUESTION",
         indexes = {}
 )
+@Getter
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Question extends BaseEntity {
 
