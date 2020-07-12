@@ -6,11 +6,15 @@ allprojects {
 buildscript {
     repositories {
         mavenCentral()
+        maven { url "https://plugins.gradle.org/m2/" }
     }
 
     dependencies {
         classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
-        classpath "io.spring.gradle:dependency-management-plugin:1.0.9.RELEASE"
+        classpath "io.spring.gradle:dependency-management-plugin:${springDependencyManagementVersion}"
+        classpath "org.asciidoctor:asciidoctor-gradle-plugin:${asciidoctorVersion}"
+        classpath "gradle.plugin.com.ewerk.gradle.plugins:querydsl-plugin:${querydslPluginVersion}"
+
     }
 }
 
@@ -19,8 +23,13 @@ subprojects {
     apply plugin: 'java-library'
     apply plugin: 'org.springframework.boot'
     apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'org.asciidoctor.convert'
 
     sourceCompatibility = "${javaVersion}"
+
+    ext {
+        snippetsDir = file('build/generated-snippets')
+    }
 
     repositories {
         mavenCentral()
