@@ -2,13 +2,8 @@ plugins {
     id "com.ewerk.gradle.plugins.querydsl" version "1.0.10"
 }
 
-bootJar {
-    enabled = false
-}
-
-jar {
-    enabled = true
-}
+bootJar { enabled = false }
+jar { enabled = true }
 
 dependencies {
     implementation project(path: ':infrastructures:rdb', configuration: 'default')
@@ -16,7 +11,6 @@ dependencies {
 
     testImplementation project(':core-test')
 }
-
 
 def querydslDir = "$buildDir/generated/querydsl"
 
