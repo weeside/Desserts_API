@@ -1,4 +1,4 @@
-package com.weecode.desserts.external;
+package com.weecode.desserts;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

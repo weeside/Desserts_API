@@ -1,4 +1,10 @@
+bootJar { enabled = false }
+jar { enabled = true }
+
 dependencies {
+    asciidoctor "org.springframework.restdocs:spring-restdocs-asciidoctor"
+    implementation "org.springframework.restdocs:spring-restdocs-mockmvc"
+
     compileOnly('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }

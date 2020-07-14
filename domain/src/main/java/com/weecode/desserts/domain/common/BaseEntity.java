@@ -1,4 +1,4 @@
-package com.weecode.desserts.domain;
+package com.weecode.desserts.domain.common;
 
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;

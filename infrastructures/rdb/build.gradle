@@ -1,10 +1,5 @@
-bootJar {
-    enabled = false
-}
-
-jar {
-    enabled = true
-}
+bootJar { enabled = false }
+jar { enabled = true }
 
 dependencies {
     runtimeOnly 'com.h2database:h2'
