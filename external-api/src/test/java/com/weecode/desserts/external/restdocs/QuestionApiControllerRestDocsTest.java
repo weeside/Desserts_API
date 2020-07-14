@@ -1,7 +1,7 @@
 package com.weecode.desserts.external.restdocs;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.weeside.desserts.test.RestDocsTest;
+import com.weecode.desserts.test.RestDocsTest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

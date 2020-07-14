@@ -7,7 +7,7 @@ import com.weecode.desserts.domain.question.Question;
 import com.weecode.desserts.domain.question.QuestionRepository;
 import com.weecode.desserts.external.dummy.QuestionDummyBuilder;
 import com.weecode.desserts.external.question.dto.QuestionsResponse;
-import com.weeside.desserts.test.ContextTest;
+import com.weecode.desserts.test.ContextTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

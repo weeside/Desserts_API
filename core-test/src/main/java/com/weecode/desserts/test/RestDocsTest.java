@@ -1,4 +1,4 @@
-package com.weeside.desserts.test;
+package com.weecode.desserts.test;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
