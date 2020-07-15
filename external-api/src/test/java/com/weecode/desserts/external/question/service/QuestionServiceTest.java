@@ -1,4 +1,4 @@
-package com.weecode.desserts.external.question;
+package com.weecode.desserts.external.question.service;
 
 import com.weecode.desserts.domain.question.Question;
 import com.weecode.desserts.domain.question.QuestionRepository;
