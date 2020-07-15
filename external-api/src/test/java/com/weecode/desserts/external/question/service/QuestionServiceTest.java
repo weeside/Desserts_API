@@ -6,9 +6,6 @@ import com.weecode.desserts.external.dummy.QuestionDummyBuilder;
 import com.weecode.desserts.external.question.component.QuestionResponseConverter;
 import com.weecode.desserts.external.question.dto.QuestionResponse;
 import com.weecode.desserts.external.question.dto.QuestionsResponse;
-import com.weecode.desserts.external.question.service.QuestionService;
-import com.weecode.desserts.external.question.service.QuestionShuffler;
-import com.weecode.desserts.external.question.service.RandomGenerator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -20,7 +17,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 
-import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;

@@ -4,7 +4,6 @@ import com.weecode.desserts.domain.result.Result;
 import com.weecode.desserts.domain.result.ResultRepository;
 import com.weecode.desserts.external.result.dto.QuestionResultCreateRequest;
 import com.weecode.desserts.external.result.dto.QuestionResultResponse;
-import com.weecode.desserts.external.result.service.ResultService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

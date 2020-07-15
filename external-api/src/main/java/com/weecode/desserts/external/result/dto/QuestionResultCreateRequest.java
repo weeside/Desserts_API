@@ -12,7 +12,7 @@ public class QuestionResultCreateRequest {
     private double result;
 
     @Builder
-    private  QuestionResultCreateRequest(double result) {
+    private QuestionResultCreateRequest(double result) {
         this.result = result;
     }
 }

@@ -9,12 +9,11 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 @EnableAsync
 @Configuration
 public class AsyncConfig {
-    public static final String EXERNAL_API_ASYNC_THREAD_POOL_NAME = "externalAsyncThreadPool";
+    public static final String EXTERNAL_API_ASYNC_THREAD_POOL_NAME = "externalAsyncThreadPool";
 
-    @Bean(EXERNAL_API_ASYNC_THREAD_POOL_NAME)
+    @Bean(EXTERNAL_API_ASYNC_THREAD_POOL_NAME)
     public TaskExecutor externalAsyncThreadPool() {
         int availableProcessors = Runtime.getRuntime().availableProcessors();
-
         ThreadPoolTaskExecutor threadPoolTaskExecutor = new ThreadPoolTaskExecutor();
         threadPoolTaskExecutor.setCorePoolSize(availableProcessors);
         threadPoolTaskExecutor.setMaxPoolSize(availableProcessors * 2);
