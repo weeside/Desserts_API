@@ -23,7 +23,6 @@ public class QuestionApiController {
     @GetMapping
     public CompletableFuture<DessertsResponse<QuestionsResponse>> questions(Pageable pageable) {
         return questionService.readQuestions(pageable)
-                .thenCompose(questionsResponse ->
-                        CompletableFuture.supplyAsync(() -> DessertsResponse.success(questionsResponse)));
+                .thenCompose(questionsResponse -> CompletableFuture.supplyAsync(() -> DessertsResponse.success(questionsResponse)));
     }
 }
