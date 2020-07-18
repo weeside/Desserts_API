@@ -33,7 +33,7 @@ class ResultApiControllerTest extends ContextTest {
     void createResult() throws Exception {
         // given
         QuestionResultCreateRequest questionResultCreateRequest = QuestionResultCreateRequest.builder()
-                .result(5.0)
+                .result(5)
                 .build();
 
         // when

@@ -31,14 +31,14 @@ class ResultServiceTest {
     void create() {
         // given
         Result result = Result.builder()
-                .point(5.0)
+                .point(5)
                 .build();
 
         given(resultRepository.save(any(Result.class))).willReturn(result);
 
         // when
         QuestionResultCreateRequest request = QuestionResultCreateRequest.builder()
-                .result(5.0)
+                .result(5)
                 .build();
 
         QuestionResultResponse actual = dut.create(request).join();
@@ -56,7 +56,7 @@ class ResultServiceTest {
 
         // when
         QuestionResultCreateRequest request = QuestionResultCreateRequest.builder()
-                .result(5.0)
+                .result(5)
                 .build();
 
         QuestionResultResponse actual = dut.create(request).join();
