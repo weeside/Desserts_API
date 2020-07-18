@@ -17,4 +17,8 @@ public class DessertsResponse<T> {
     public static <T> DessertsResponse<T> success(T data) {
         return new DessertsResponse<>(data);
     }
+
+    public static DessertsResponse<ErrorMessage> fail(ErrorMessage errorMessage) {
+        return new DessertsResponse<>(errorMessage);
+    }
 }

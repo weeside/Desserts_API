@@ -1,9 +1,10 @@
 rootProject.name = 'desserts'
 
+include 'core'
 include 'core-test'
-include 'domain'
+include 'api-core'
 include 'infrastructures'
 include 'infrastructures:rdb'
-include 'core'
+include 'domain'
 include 'external-api'
 

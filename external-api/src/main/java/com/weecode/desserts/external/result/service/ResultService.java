@@ -11,6 +11,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.concurrent.CompletableFuture;
 
+import static com.weecode.desserts.external.config.AsyncConfig.*;
+
 @Slf4j
 @Service
 public class ResultService {
@@ -21,20 +23,23 @@ public class ResultService {
         this.resultRepository = resultRepository;
     }
 
-    @Async
+    @Async(EXTERNAL_API_ASYNC_THREAD_POOL_NAME)
     @Transactional
     public CompletableFuture<QuestionResultResponse> create(QuestionResultCreateRequest questionResultCreateRequest) {
-        return CompletableFuture.supplyAsync(() -> {
-                    Result result = Result.builder()
-                            .point(questionResultCreateRequest.getResult())
-                            .build();
+        Result result = Result.builder()
+                .point(questionResultCreateRequest.getResult())
+                .build();
 
-                    resultRepository.save(result);
-                    return QuestionResultResponse.success();
-                })
-                .exceptionally(error -> {
-                    log.error("result save failed. request: {}", questionResultCreateRequest, error);
-                    return QuestionResultResponse.fail();
-                });
+        CompletableFuture<QuestionResultResponse> completableFuture = new CompletableFuture<>();
+
+        try {
+            resultRepository.save(result);
+            completableFuture.complete(QuestionResultResponse.success());
+        } catch (Exception ex) {
+            log.error("result save failed. request: {}", questionResultCreateRequest, ex);
+            completableFuture.complete(QuestionResultResponse.fail());
+        }
+
+        return completableFuture;
     }
 }

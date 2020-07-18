@@ -9,10 +9,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class QuestionResultCreateRequest {
 
-    private double result;
+    private int result;
 
     @Builder
-    private  QuestionResultCreateRequest(double result) {
+    private QuestionResultCreateRequest(int result) {
         this.result = result;
     }
 }

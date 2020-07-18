@@ -20,10 +20,10 @@ public class Result {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Double point;
+    private Integer point;
 
     @Builder
-    private Result(Double point) {
+    private Result(Integer point) {
         this.point = point;
     }
 }
