@@ -8,11 +8,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
+
+import static com.weecode.desserts.external.config.AsyncConfig.EXTERNAL_API_ASYNC_THREAD_POOL_NAME;
 
 @Service
 public class QuestionService {
@@ -28,12 +29,14 @@ public class QuestionService {
         this.questionResponseConverter = questionResponseConverter;
     }
 
-    @Async
+    @Async(EXTERNAL_API_ASYNC_THREAD_POOL_NAME)
     @Transactional(readOnly = true)
     public CompletableFuture<QuestionsResponse> readQuestions(Pageable pageable) {
         Page<Question> questions = questionRepository.findAll(pageable);
         List<Question> shuffledQuestions = questionShuffler.shuffle(questions.getContent());
 
-        return CompletableFuture.completedFuture(questionResponseConverter.convert(shuffledQuestions));
+        QuestionsResponse questionsResponse = questionResponseConverter.convert(shuffledQuestions);
+
+        return CompletableFuture.completedFuture(questionsResponse);
     }
 }

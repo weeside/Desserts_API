@@ -1,5 +1,10 @@
 package com.weecode.desserts.domain.result;
 
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 
 @Entity
@@ -7,11 +12,18 @@ import javax.persistence.*;
         name = "RESULT",
         indexes = {}
 )
+@Getter
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Result {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long memberId;
+    private Integer point;
+
+    @Builder
+    private Result(Integer point) {
+        this.point = point;
+    }
 }
