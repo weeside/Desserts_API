@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  app:
+    container_name: desserts-external
+    entrypoint: ['java', '-jar', '-Dspring.profiles.active=beta', 'app.jar']
+    build: .
+    ports:
+      - 8080:8080
+    networks:
+      - database
+    depends_on:
+      - dev-db
+  dev-db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: desserts
+      MYSQL_USER: desserts_beta_svc
+      MYSQL_PASSWORD: rP0h3C27C046wF5j6cOJ
+    networks:
+      - database
+    ports:
+      - 3306:3306
+
+networks:
+  database:

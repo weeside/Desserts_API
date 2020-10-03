@@ -4,3 +4,14 @@ spring:
     url: jdbc:h2:mem:testdb;DB_CLOSE_ON_EXIT=FALSE
     username: sa
     password:
+
+---
+spring:
+  profiles:
+    - beta
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://dev-db:3306/desserts?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: desserts_beta_svc
+    password: rP0h3C27C046wF5j6cOJ
