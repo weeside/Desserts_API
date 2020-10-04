@@ -1,4 +1,4 @@
-version: "3.8"
+version: "2.4"
 
 services:
   app:
@@ -10,9 +10,14 @@ services:
     networks:
       - database
     depends_on:
-      - dev-db
+      dev-db:
+        condition: service_healthy
   dev-db:
-    image: mysql:5.7
+    image: mysql:5.7.31
+    volumes:
+      - /var/lib/mysql
+      - ./external-api/dev/:/docker-entrypoint-initdb.d
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     environment:
       MYSQL_ROOT_PASSWORD: 1234
       MYSQL_DATABASE: desserts
@@ -22,6 +27,11 @@ services:
       - database
     ports:
       - 3306:3306
+    healthcheck:
+      test: ['CMD', '/usr/bin/mysql', '--host=dev-db', '--port=3306', '--user=root', '--password=1234', '-e', 'show databases;']
+      interval: 30s
+      timeout: 10s
+      retries: 5
 
 networks:
   database:
