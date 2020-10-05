@@ -1,6 +1,18 @@
 version: "2.4"
 
 services:
+  proxy:
+    container_name: desserts-external-proxy
+    image: nginx:latest
+    ports:
+      - 80:80
+    volumes:
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
+    networks:
+      - external
+    depends_on:
+      app:
+        condition: service_healthy
   app:
     container_name: desserts-external
     entrypoint: ['java', '-jar', '-Dspring.profiles.active=beta', 'app.jar']
@@ -14,6 +26,11 @@ services:
     depends_on:
       dev-db:
         condition: service_healthy
+    healthcheck:
+      test: ['CMD', 'curl', 'http://localhost:8080/healthcheck']
+      interval: 30s
+      timeout: 10s
+      retries: 5
   dev-db:
     container_name: desserts-dev-db
     image: mysql:5.7.31
