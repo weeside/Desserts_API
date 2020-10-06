@@ -8,10 +8,10 @@ spring:
 ---
 spring:
   profiles:
-    - beta
+    - dev
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://dev-db:3306/desserts?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
-    username: desserts_beta_svc
+    username: desserts_dev_svc
     password: rP0h3C27C046wF5j6cOJ

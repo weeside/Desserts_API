@@ -1,0 +1,32 @@
+version: "2.4"
+
+services:
+  app:
+    entrypoint: ['java', '-jar', '-Dspring.profiles.active=dev', 'app.jar']
+    depends_on:
+      dev-db:
+        condition: service_healthy
+  dev-db:
+    container_name: desserts-dev-db
+    image: mysql:5.7.31
+    volumes:
+      - /var/lib/mysql
+      - ./docker/database:/docker-entrypoint-initdb.d
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: desserts
+      MYSQL_USER: desserts_dev_svc
+      MYSQL_PASSWORD: rP0h3C27C046wF5j6cOJ
+    networks:
+      - external
+    ports:
+      - 3306:3306
+    healthcheck:
+      test: ['CMD', '/usr/bin/mysql', '--host=dev-db', '--port=3306', '--user=root', '--password=1234', '-e', 'show databases;']
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+networks:
+  external:
