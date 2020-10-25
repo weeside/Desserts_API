@@ -1,6 +1,6 @@
-package com.weeside.desserts.domain.insite;
+package com.weeside.desserts.domain.insight;
 
-public enum InsiteCategory {
+public enum InsightCategory {
     GOOD_START("저번주 통계가 없을때 이번주 통계가 5점 이상인 경우"),
     BAD_START("저번주 통계가 없을때 이번주 통계가 5점 미만인 경우"),
     LESS_THAN_LAST_WEEK("저번주 통계가 있고 저번달 통계가 없을때 저번주가 이번주 점수보다 높은 경우"),
@@ -12,7 +12,7 @@ public enum InsiteCategory {
 
     private String description;
 
-    InsiteCategory(String description) {
+    InsightCategory(String description) {
         this.description = description;
     }
 }
