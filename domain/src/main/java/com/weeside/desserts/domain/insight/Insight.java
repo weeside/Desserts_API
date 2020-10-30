@@ -14,6 +14,7 @@ import javax.persistence.*;
 )
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Insight extends BaseEntity {
+    public static final double BASE_POINT = 5.0;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
