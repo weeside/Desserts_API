@@ -2,8 +2,10 @@ package com.weeside.desserts.external.insight.vo;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.ToString;
 
 @Getter
+@ToString
 public class ResultStatistics {
     private final double thisWeek;
     private final double lastWeek;
