@@ -2,9 +2,7 @@ package com.weeside.desserts.external.insight.component;
 
 import com.weeside.desserts.domain.insight.InsightCategory;
 import com.weeside.desserts.domain.memberstat.MemberStatistics;
-import com.weeside.desserts.external.insight.vo.ResultStatistics;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -12,7 +10,6 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class FirstBadInsightDeciderTest {
 

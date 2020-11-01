@@ -3,6 +3,7 @@ package com.weeside.desserts.domain.insight;
 import com.weeside.desserts.domain.common.BaseEntity;
 import lombok.AccessLevel;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -12,6 +13,7 @@ import javax.persistence.*;
         name = "INSIGHT",
         indexes = {}
 )
+@Getter
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Insight extends BaseEntity {
     public static final double BASE_POINT = 5.0;

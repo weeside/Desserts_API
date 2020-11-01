@@ -1,4 +1,4 @@
-package com.weeside.desserts.external.question.service;
+package com.weeside.desserts.core;
 
 import org.springframework.stereotype.Component;
 
@@ -12,7 +12,11 @@ import java.util.stream.IntStream;
 public class RandomGenerator {
     private static final ThreadLocalRandom RANDOM = ThreadLocalRandom.current();
 
-    public List<Integer> generate(int upper) {
+    public Integer generateRandomNumber(int upper) {
+        return RANDOM.nextInt(upper);
+    }
+
+    public List<Integer> generateRandomNumbers(int upper) {
         return IntStream.range(0, upper)
                 .boxed()
                 .sorted(randomSort())

@@ -1,5 +1,6 @@
 package com.weeside.desserts.domain.result;
 
+import com.weeside.desserts.domain.common.BaseEntity;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -10,20 +11,25 @@ import javax.persistence.*;
 @Entity
 @Table(
         name = "RESULT",
-        indexes = {}
+        indexes = {@Index(name = "idx_result_member_id", columnList = "memberId")}
 )
 @Getter
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class Result {
+public class Result extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Integer point;
+    @Column
+    private Long memberId;
+
+    @Column
+    private int point;
 
     @Builder
-    private Result(Integer point) {
+    private Result(Long memberId, int point) {
+        this.memberId = memberId;
         this.point = point;
     }
 }

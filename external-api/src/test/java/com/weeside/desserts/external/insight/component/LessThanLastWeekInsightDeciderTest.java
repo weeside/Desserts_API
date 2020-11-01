@@ -2,7 +2,6 @@ package com.weeside.desserts.external.insight.component;
 
 import com.weeside.desserts.domain.insight.InsightCategory;
 import com.weeside.desserts.domain.memberstat.MemberStatistics;
-import com.weeside.desserts.external.insight.vo.ResultStatistics;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;

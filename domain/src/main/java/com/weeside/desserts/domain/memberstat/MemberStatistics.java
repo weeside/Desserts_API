@@ -35,11 +35,24 @@ public class MemberStatistics {
     private double thisMonth;
 
     @Builder
-    public MemberStatistics(Long memberId, double lastWeek, double thisWeek, double lastMonth, double thisMonth) {
+    private MemberStatistics(Long memberId, double lastWeek, double thisWeek, double lastMonth, double thisMonth) {
         this.memberId = memberId;
         this.lastWeek = lastWeek;
         this.thisWeek = thisWeek;
         this.lastMonth = lastMonth;
+        this.thisMonth = thisMonth;
+    }
+
+    public static MemberStatistics newInstance(Long memberId, double point) {
+        return MemberStatistics.builder()
+                .memberId(memberId)
+                .thisWeek(point)
+                .thisMonth(point)
+                .build();
+    }
+
+    public void update(double thisWeek, double thisMonth) {
+        this.thisWeek = thisWeek;
         this.thisMonth = thisMonth;
     }
 

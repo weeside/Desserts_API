@@ -21,8 +21,9 @@ public class ResultApiController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public CompletableFuture<DessertsResponse<QuestionResultResponse>> createResult(@RequestBody QuestionResultCreateRequest questionResultCreateRequest) {
-        return resultService.create(questionResultCreateRequest)
+    public CompletableFuture<DessertsResponse<QuestionResultResponse>> createResult(Long memberId,
+                                                                                    @RequestBody QuestionResultCreateRequest request) {
+        return resultService.create(memberId, request)
                 .thenCompose(questionResultResponse -> CompletableFuture.supplyAsync(() -> DessertsResponse.success(questionResultResponse)));
     }
 }
