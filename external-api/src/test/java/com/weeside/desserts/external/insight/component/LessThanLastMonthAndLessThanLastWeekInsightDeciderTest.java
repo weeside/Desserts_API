@@ -1,6 +1,7 @@
 package com.weeside.desserts.external.insight.component;
 
 import com.weeside.desserts.domain.insight.InsightCategory;
+import com.weeside.desserts.domain.memberstat.MemberStatistics;
 import com.weeside.desserts.external.insight.vo.ResultStatistics;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -24,7 +25,7 @@ class LessThanLastMonthAndLessThanLastWeekInsightDeciderTest {
     @MethodSource
     void decide(double lastWeek, double thisWeek, double lastMonth, double thisMonth, InsightCategory expected) {
         // given
-        ResultStatistics resultStatistics = ResultStatistics.builder()
+        MemberStatistics memberStatistics = MemberStatistics.builder()
                 .lastWeek(lastWeek)
                 .thisWeek(thisWeek)
                 .lastMonth(lastMonth)
@@ -32,7 +33,7 @@ class LessThanLastMonthAndLessThanLastWeekInsightDeciderTest {
                 .build();
 
         // when
-        InsightCategory actual = dut.decide(resultStatistics);
+        InsightCategory actual = dut.decide(memberStatistics);
 
         // then
         assertThat(actual).isEqualTo(expected);

@@ -2,6 +2,7 @@ package com.weeside.desserts.domain.memberstat;
 
 import lombok.AccessLevel;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -10,8 +11,9 @@ import javax.persistence.*;
 @Table(
         name = "MEMBER_STAT"
 )
+@Getter
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class MemberStat {
+public class MemberStatistics {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,11 +35,31 @@ public class MemberStat {
     private double thisMonth;
 
     @Builder
-    public MemberStat(Long memberId, double lastWeek, double thisWeek, double lastMonth, double thisMonth) {
+    public MemberStatistics(Long memberId, double lastWeek, double thisWeek, double lastMonth, double thisMonth) {
         this.memberId = memberId;
         this.lastWeek = lastWeek;
         this.thisWeek = thisWeek;
         this.lastMonth = lastMonth;
         this.thisMonth = thisMonth;
+    }
+
+    public boolean isThisWeekBetterThan(double point) {
+        return thisWeek > point;
+    }
+
+    public boolean isThisWeekBetterThanLastWeek() {
+        return thisWeek > lastWeek;
+    }
+
+    public boolean isThisMonthBatterThanLastMonth() {
+        return thisMonth > lastMonth;
+    }
+
+    public boolean isExistLastWeek() {
+        return lastWeek != 0;
+    }
+
+    public boolean isExistLastMonth() {
+        return lastMonth != 0;
     }
 }
