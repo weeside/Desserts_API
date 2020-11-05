@@ -14,7 +14,18 @@ buildscript {
         classpath "io.spring.gradle:dependency-management-plugin:${springDependencyManagementVersion}"
         classpath "org.asciidoctor:asciidoctor-gradle-plugin:${asciidoctorVersion}"
         classpath "gradle.plugin.com.ewerk.gradle.plugins:querydsl-plugin:${querydslPluginVersion}"
+        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:${sonarqubeVersion}"
+    }
+}
 
+apply plugin: 'org.sonarqube'
+
+sonarqube {
+    properties {
+        property "sonar.host.url", "http://52.79.39.125:9000"
+        property "sonar.sourceEncoding", "UTF-8"
+        property "sonar.language", "java"
+        property "sonar.exclusions", "**/Q*,**/dto/*"
     }
 }
 
@@ -27,6 +38,7 @@ configure(all) {
     apply plugin: 'org.springframework.boot'
     apply plugin: 'io.spring.dependency-management'
     apply plugin: 'org.asciidoctor.convert'
+    apply plugin: 'jacoco'
 
     sourceCompatibility = "${javaVersion}"
 
@@ -57,5 +69,15 @@ configure(all) {
 
     test {
         useJUnitPlatform()
+
+        reports {
+            junitXml.enabled = true
+            html.enabled = true
+            ignoreFailures = true
+        }
+        jacoco {
+            enabled = true
+            destinationFile = file("${buildDir}/jacoco/jacoco.exec")
+        }
     }
 }
