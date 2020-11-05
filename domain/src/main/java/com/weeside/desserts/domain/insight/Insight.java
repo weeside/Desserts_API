@@ -1,19 +1,22 @@
-package com.weeside.desserts.domain.insite;
+package com.weeside.desserts.domain.insight;
 
 import com.weeside.desserts.domain.common.BaseEntity;
 import lombok.AccessLevel;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
 @Table(
-        name = "INSITE",
+        name = "INSIGHT",
         indexes = {}
 )
+@Getter
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class Insite extends BaseEntity {
+public class Insight extends BaseEntity {
+    public static final double BASE_POINT = 5.0;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,13 +24,13 @@ public class Insite extends BaseEntity {
 
     @Column
     @Enumerated(EnumType.STRING)
-    private InsiteCategory category;
+    private InsightCategory category;
 
     @Column
     private String contents;
 
     @Builder
-    public Insite(InsiteCategory category, String contents) {
+    public Insight(InsightCategory category, String contents) {
         this.category = category;
         this.contents = contents;
     }

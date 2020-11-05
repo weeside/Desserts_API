@@ -1,6 +1,7 @@
 package com.weeside.desserts.external.question.service;
 
 import com.weeside.desserts.domain.question.Question;
+import com.weeside.desserts.core.RandomGenerator;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -30,7 +31,7 @@ class QuestionShufflerTest {
         // given
         List<Question> questions = Arrays.asList();
         List<Integer> randomIndexes = Arrays.asList();
-        given(randomGenerator.generate(questions.size())).willReturn(randomIndexes);
+        given(randomGenerator.generateRandomNumbers(questions.size())).willReturn(randomIndexes);
 
         // when
         List<Question> actual = dut.shuffle(questions);

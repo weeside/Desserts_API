@@ -1,5 +1,6 @@
 package com.weeside.desserts.external.question.service;
 
+import com.weeside.desserts.core.RandomGenerator;
 import org.assertj.core.util.Sets;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -25,7 +26,7 @@ class RandomGeneratorTest {
     void generate() {
         // when
         int upper = 20;
-        List<Integer> actual = dut.generate(upper);
+        List<Integer> actual = dut.generateRandomNumbers(upper);
 
         // then
         Set<Integer> filteredRandomValues = Sets.newHashSet(actual);

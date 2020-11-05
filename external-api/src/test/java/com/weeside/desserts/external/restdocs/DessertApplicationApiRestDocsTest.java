@@ -28,6 +28,7 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.BDDMockito.given;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.payload.PayloadDocumentation.*;
@@ -97,16 +98,18 @@ class DessertApplicationApiRestDocsTest extends RestDocsTest {
     @DisplayName("질문 결과를 전달한다.")
     void createResult() throws Exception {
         // given
+        Long memberId = 1L;
         QuestionResultCreateRequest questionResultCreateRequest = QuestionResultCreateRequest.builder()
                 .result(5)
                 .build();
         QuestionResultResponse questionResultResponse = QuestionResultResponse.success();
 
-        given(resultService.create(any(QuestionResultCreateRequest.class)))
+        given(resultService.create(eq(memberId), any(QuestionResultCreateRequest.class)))
                 .willReturn(CompletableFuture.completedFuture(questionResultResponse));
 
         // when
         MvcResult mvcResult = mockMvc.perform(post("/v1/results")
+                .queryParam("memberId", memberId.toString())
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(questionResultCreateRequest))
         )
