@@ -1,4 +1,4 @@
-package com.weeside.desserts.external;
+package com.weeside.desserts;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

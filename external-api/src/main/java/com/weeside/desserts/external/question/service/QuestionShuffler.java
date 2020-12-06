@@ -1,7 +1,7 @@
 package com.weeside.desserts.external.question.service;
 
 import com.weeside.desserts.domain.question.Question;
-import com.weeside.desserts.core.RandomGenerator;
+import com.weeside.desserts.common.component.RandomGenerator;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

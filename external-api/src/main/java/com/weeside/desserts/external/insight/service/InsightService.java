@@ -9,7 +9,7 @@ import com.weeside.desserts.exception.DessertsException;
 import com.weeside.desserts.external.insight.component.InsightDeciders;
 import com.weeside.desserts.external.insight.component.InsightResponseConverter;
 import com.weeside.desserts.external.insight.dto.InsightResponse;
-import com.weeside.desserts.core.RandomGenerator;
+import com.weeside.desserts.common.component.RandomGenerator;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

@@ -1,6 +1,6 @@
 package com.weeside.desserts.external.question.service;
 
-import com.weeside.desserts.core.RandomGenerator;
+import com.weeside.desserts.common.component.RandomGenerator;
 import org.assertj.core.util.Sets;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

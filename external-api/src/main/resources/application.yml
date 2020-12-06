@@ -1,4 +1,6 @@
 spring:
+  application:
+    name: desserts-api
   profiles:
     active: local
     include:

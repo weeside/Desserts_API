@@ -6,7 +6,7 @@ import com.weeside.desserts.external.dummy.QuestionDummyBuilder;
 import com.weeside.desserts.external.question.component.QuestionResponseConverter;
 import com.weeside.desserts.external.question.dto.QuestionResponse;
 import com.weeside.desserts.external.question.dto.QuestionsResponse;
-import com.weeside.desserts.core.RandomGenerator;
+import com.weeside.desserts.common.component.RandomGenerator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

@@ -78,3 +78,29 @@ include::{snippets}/results/http-request.adoc[]
 응답 예시:
 
 include::{snippets}/results/http-response.adoc[]
+
+== Insite API
+
+=== 결과 생성
+
+질문의 결과를 저정하는 API. 5개의 질문의 총합 점수를 저장.
+
+Request Body 형식:
+
+include::{snippets}/results/request-fields.adoc[]
+
+Response Body 형식:
+
+include::{snippets}/results/response-fields.adoc[]
+
+CURL:
+
+include::{snippets}/results/curl-request.adoc[]
+
+요청 예시:
+
+include::{snippets}/results/http-request.adoc[]
+
+응답 예시:
+
+include::{snippets}/results/http-response.adoc[]

@@ -1,4 +1,4 @@
-package com.weeside.desserts.core;
+package com.weeside.desserts.common.component;
 
 import org.springframework.stereotype.Component;
 
